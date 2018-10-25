@@ -1,0 +1,64 @@
+.user-dropdown {
+  left: -105px;
+  max-width: 290px;
+}
+
+.user-portrait {
+  height: 40px;
+}
+
+.user-info-portrait {
+  img {
+    height: 140px;
+  }
+}
+
+.search-form .form-group {
+  float: right !important;
+  transition: all 0.35s, border-radius 0s;
+  width: 32px;
+  height: 32px;
+  background-color: #fff;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+
+  input.form-control {
+    padding-left: 30px;
+    padding-bottom: 12px;
+    border: 0 none;
+    background: transparent;
+    box-shadow: none;
+    display: block;
+
+    &::-webkit-input-placeholder {
+      display: none;
+    }
+
+    &:-moz-placeholder {
+      /* Firefox 18- */
+      display: none;
+    }
+
+    &::-moz-placeholder {
+      /* Firefox 19+ */
+      display: none;
+    }
+
+    &:-ms-input-placeholder {
+      display: none;
+    }
+  }
+
+  &:hover,
+  &.hover {
+    width: 100%;
+    border-radius: 25px;
+  }
+
+  i.form-control-feedback {
+    position: relative;
+    top: -36px;
+    left: 8px;
+  }
+}

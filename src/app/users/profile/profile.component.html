@@ -1,0 +1,76 @@
+<section class="user-profiles">
+
+  <div class="card border-0 shadow-sm rounded-0">
+    <div class="row mx-3 p-0">
+        <div class="profile-icons">
+            <div class="hoz-nav">
+              <ul>
+                <li><a class="text-black" href="#"><i class="fa fa-share shadow" aria-hidden="true"></i></a></li>
+                <li><a class="text-black" href="#"><i class="fa fa-print shadow" aria-hidden="true"></i></a></li>
+                <li><a class="text-black" href="#"><i class="fa fa-ellipsis-v shadow" aria-hidden="true"></i></a></li>
+              </ul>
+            </div>
+          </div>
+    </div>
+    <div class="row user-card m-0 p-4">
+      <div class="col-md-7 col-sm-12">
+        <div class="clearfix">
+          <div class="float-left">
+            <div class="border-outline rounded-circle m-3 shadow">
+              <img class="rounded-circle p-1" src="assets/static/user01-320x320.jpg" />
+            </div>
+          </div>
+          <div class="float-left m-2 pl-2">
+            <div class="user-details">
+              <span>Giacobo Lefeaver</span>
+              <p>Full Stack Developer</p>
+              <p><i class="fa fa-building-o" aria-hidden="true"></i> <a href="#">Blue Space Technologies, INC</a></p>
+              <div class="mt-5">
+                <button class="btn btn-custom shadow">Contact</button>
+                <button class="btn btn-custom shadow">Request Docs</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5 col-sm-12">
+        <div class="user-info m-3">
+          <ul>
+            <li><a href="#">+1 (921) 404-3245</a></li>
+            <li><a href="#">griffinjenkins@genmy.com</a></li>
+            <li><a href="#">View Team</a></li>
+            <li><a href="#">539 Abbey Court, Curtice, Alaska, 9408</a></li>
+          </ul>
+          <div class="hoz-nav socials">
+            <ul class="float-right">
+              <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+              <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+              <li><a href="#"><i class="fa fa-github-alt" aria-hidden="true"></i></a></li>
+              <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="mt-4 bg-transparent details-nav">
+    <nav class="nav nav-pills flex-column flex-sm-row m-3">
+      <a class="flex-sm-fill text-sm-center nav-link mx-2 border-0" routerLink="profile" routerLinkActive="active shadow-sm">Personal</a>
+      <a class="flex-sm-fill text-sm-center nav-link mx-2 border-0" routerLink="job-details" routerLinkActive="active shadow-sm">Job</a>
+      <a class="flex-sm-fill text-sm-center nav-link mx-2 border-0" routerLink="career" routerLinkActive="active shadow-sm">Career</a>
+      <a class="flex-sm-fill text-sm-center nav-link mx-2 border-0" routerLink="social" routerLinkActive="active shadow-sm">Social</a>
+      <a class="flex-sm-fill text-sm-center nav-link mx-2 border-0" routerLink="compensation" routerLinkActive="active shadow-sm ">Compensation</a>
+      <a class="flex-sm-fill text-sm-center nav-link mx-2 border-0" routerLink="employee-benefits" routerLinkActive="active shadow-sm">Benefits</a>
+      <a class="flex-sm-fill text-sm-center nav-link mx-2 border-0" routerLink="legalDocs" routerLinkActive="active shadow-sm">Immigration</a>
+      <a class="flex-sm-fill text-sm-center nav-link mx-2 border-0" routerLink="sasas" routerLinkActive="active shadow-sm">Messages</a>
+    </nav>
+  </div>
+
+  <div class="my-4">
+    <router-outlet></router-outlet>
+  </div>
+
+
+</section>

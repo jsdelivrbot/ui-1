@@ -1,0 +1,82 @@
+@import '../../scss/var';
+
+.stepwizard-step p {
+  margin-top: 10px;
+}
+
+.stepwizard-row {
+  display: table-row;
+}
+
+.stepwizard {
+  display: inline;
+  width: 50%;
+  position: relative;
+}
+
+.stepwizard-step button[disabled] {
+  opacity: 1 !important;
+  filter: alpha(opacity=100) !important;
+}
+
+.stepwizard-step {
+  display: table-cell;
+  text-align: center;
+  position: relative;
+}
+
+.panel-progress {
+  position: absolute;
+  right: 20px;
+  top: -42px;
+
+  a img {
+    height: 60px;
+    padding: 10px;
+    border-radius: 50%;
+    background: #fff;
+  }
+
+  .panel-active img {
+    background: $blue-gradient;
+    transition: all .1s ease-in;
+  }
+}
+
+
+.filupp {
+  > input[type="file"] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+  position: relative;
+  background: #242424;
+  display: block;
+  padding: 10px;
+  font-size: 1em;
+  min-width: 300px;
+  max-width: 300px;
+  color: #fff;
+  cursor: pointer;
+  &:after {
+    content: "\f093";
+    font-family: FontAwesome;
+    position: absolute;
+    right: 15px;
+    top: 22px;
+    font-size: 20px;
+    color: #fff;
+    line-height: 0;
+  }
+}
+
+.filupp-file-name {
+  width: 75%;
+  font-size: 12px;
+}

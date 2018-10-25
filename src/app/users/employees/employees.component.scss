@@ -1,0 +1,78 @@
+@import '../../scss/var';
+
+.header {
+  background: #11171c;
+  padding: 10px;
+  color: #fff;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1
+}
+
+.dropdown-inner {
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 2;
+  right: 0px;
+  min-width: 100%;
+  background: #fff;
+  border-radius: 3px;
+  transition: opacity .3s, visibility .3s;
+
+  ul{
+      padding: 0px;
+      margin-bottom: 6px;
+      margin-top: 6px;
+      list-style: none;
+      a{
+          padding: 5px 35px;
+          color: #000;
+          text-decoration: none;
+
+          &:hover{
+            background: #efefef;
+            border-radius: 0px;
+          }
+      }
+  }
+
+  @media (max-width: 960px) {
+    .dropdown-inner {
+      position: fixed;
+      min-width: 0;
+      margin: 20px;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+    }
+  }
+}
+
+.dropdown-hover:hover .dropdown-inner,
+.dropdown-open:checked~.dropdown-inner {
+  opacity: 1;
+  visibility: visible
+}
+
+.dropdown-hover:hover~.dropdown-overlay,
+.dropdown-open:checked~.dropdown-overlay {
+  display: block
+}
+
+
+.emp-img{
+  border: 2px solid $primary-blue;
+}

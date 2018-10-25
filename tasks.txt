@@ -1,0 +1,26 @@
+Immigration
+--------------------
+legal docs
+
+immg docs
+
+h1b filing 
+
+h1b amin (+)
+
++
+
+
+onboarding
+----------------
+
+I-9, W-4, functionallity to add more work details, education details 
+
+
+Tables
+--------------------
+Display custom table in employees with settings icons and dropdown for options with checkboxes
+
+
+Manage Immigration
+-----------------------------

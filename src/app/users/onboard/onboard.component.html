@@ -1,0 +1,293 @@
+<h2 class="font-weight-normal blue mb-5">Onboarding Employee</h2>
+<p></p>
+
+<div class="card rounded-0 shadow-sm mb-5">
+  <div class="card-body">
+    <div class="panel-progress">
+      <div class="stepwizard w-100">
+        <div class="stepwizard-row setup-panel">
+          <div class="stepwizard-step">
+            <a href="#step-0" class="panel-active">
+              <img class="m-3 shadow" src="assets/static/icons/emp-add/management.svg" style="height: 50px" />
+            </a>
+          </div>
+          <div class="stepwizard-step">
+            <a href="#step-1" class="">
+              <img class="m-3 shadow" src="assets/static/icons/emp-add/manager.svg" style="height: 50px" />
+            </a>
+          </div>
+          <div class="stepwizard-step">
+            <a href="#step-2" class="">
+              <img class="m-3 shadow" src="assets/static/icons/emp-add/archive.svg" style="height: 50px" />
+            </a>
+          </div>
+          <div class="stepwizard-step">
+            <a href="#step-3" class="">
+              <img class="m-3 shadow" src="assets/static/icons/emp-add/organization.svg" style="height: 50px" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <form class="mt-3" #empForm="ngForm" novalidate>
+      <div class="row mx-3 panel-content" id="step-0">
+        <div class="col-md-12">
+          <h3 class="font-weight-normal"> Hiring Employee's</h3>
+          <p>Please check the below check boxes if needed</p>
+          <hr class="shadow">
+          <div class="py-2">
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+              industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+              scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap
+              into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the
+              release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing
+              software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+          </div>
+          <button class="btn btn-custom shadow-sm nextBtn pull-right" type="button">Next</button>
+        </div>
+      </div>
+      <div class="row mx-3 panel-content" id="step-1">
+        <div class="col-md-12">
+          <h3 class="font-weight-normal mb-2">Employee Details</h3>
+          <hr class="shadow">
+          <div class="my-3">
+            <div class="form-row">
+              <div class="form-group col-md-5 col-sm-12">
+                <label for="firstName">First Name</label>
+                <input type="text" class="form-control" id="firstName" name="firstName" [(ngModel)]="firstName"
+                  #fnameEmp="ngModel" minlength="3" maxlength="20" pattern="[a-zA-Z][a-zA-Z]+" required>
+              </div>
+              <div class="form-group col-md-2 col-sm-12">
+                <label for="middleName">Middle Name</label>
+                <input type="text" class="form-control" id="middleName" name="middleName" [(ngModel)]="middleName"
+                  #mnameEmp="ngModel" minlength="3" maxlength="10" pattern="[a-zA-Z][a-zA-Z]+">
+              </div>
+              <div class="form-group col-md-5 col-sm-12">
+                <label for="lastName">Last Name</label>
+                <input type="text" class="form-control" id="lastName" name="lastName" [(ngModel)]="lastName"
+                  #lastnameEmp="ngModel" minlength="3" maxlength="20" pattern="[a-zA-Z][a-zA-Z]+" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-4 col-sm-12">
+                <label for="legalName">Legal Name</label>
+                <input type="text" class="form-control" id="legalName" name="legalName" [(ngModel)]="legalName"
+                  #lnameEmp="ngModel" minlength="3" maxlength="20" pattern="[a-zA-Z][a-zA-Z]+" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-4 col-sm-12">
+                <label for="emailAddress">Email Address</label>
+                <input type="email" class="form-control" id="emailAddress" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                  name="emailId" [(ngModel)]="emailId">
+              </div>
+              <div class="form-group col-md-4 col-sm-12">
+                <label for="primaryAddress">Primary Email</label>
+                <input type="email" class="form-control" id="primaryAddress" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" name="primaryEmail" [(ngModel)]="primaryEmail">
+              </div>
+              <div class="form-group col-md-4 col-sm-12">
+                <label for="secondaryAddress">Secondary Email</label>
+                <input type="email" class="form-control" id="secondaryAddress" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" name="secondaryEmail" [(ngModel)]="secondaryEmail">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-4 col-sm-12">
+                <label for="mobilenumber">Mobile Number</label>
+                <input type="text" class="form-control" [textMask]="{mask: phonemask}" id="mobilenumber phoneNumber"
+                  placeholder="(___) ___-____" name="mobileNumber" [(ngModel)]="mobileNumber" #mNumberEmp="ngModel" required>
+              </div>
+              <div class="form-group col-md-4 col-sm-12">
+                <label for="hPhoneNumber">Home Phone Number</label>
+                <input type="text" class="form-control" [textMask]="{mask: phonemask}" id="hPhoneNumber phoneNumber"
+                  placeholder="(___) ___-____" name="homePhoneNumber" [(ngModel)]="homePhoneNumber">
+              </div>
+              <div class="form-group col-md-4 col-sm-12">
+                <label for="wPhoneNumber">Work Phone Number</label>
+                <input type="text" class="form-control" [textMask]="{mask: phonemask}" id="wPhoneNumber phoneNumber"
+                  placeholder="(___) ___-____" name="workPhoneNumber" [(ngModel)]="workPhoneNumber" >
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-custom shadow-sm nextBtn pull-right" type="button">Next</button>
+        </div>
+      </div>
+      <div class="row mx-3 panel-content" id="step-2">
+        <div class="col-md-12">
+          <h3 class="font-weight-normal mb-2">Personal Details</h3>
+          <hr class="shadow">
+          <div class="my-3">
+            <div class="form-row my-5">
+              <div class="col-md-6 col-sm-12">
+                <div class="form-row">
+                  <img-cropper #cropper [image]="data" [settings]="cropperSettings"></img-cropper>
+                  <span class="result rounded" *ngIf="data.image">
+                    <img [src]="data.image" [width]="cropperSettings.croppedWidth" [height]="cropperSettings.croppedHeight">
+                  </span>
+                </div>
+                <div class="form-row">
+                  <div class="file-upload">
+                    <label for="custom-file-upload" class="filupp">
+                      <span class="filupp-file-name js-value">Browse Files</span>
+                      <input type="file" name="attachment-file" value="1" id="custom-file-upload" (change)="fileChangeListener($event)" name="profileImage" [(ngModel)]="profileImage">
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-sm-12">
+                <div class="form-row">
+                  <div class="form-group ">
+                    <label for="ssnnumber">Social Security Number</label>
+                    <input type="text" class="form-control" [textMask]="{mask: ssnmask}" id="ssnnumber" placeholder="___-__-____" name="ssn" #ssnEmp="ngModel" [(ngModel)]="ssn" required>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group ">
+                    <label for="dob">Date of Birth</label>
+                    <input type="text" class="form-control" [textMask]="{mask: datemask}" id="dob" placeholder="mm/dd/yyyy" name="dateOfBirth" #dobEmp="ngModel" [(ngModel)]="dateOfBirth" required>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group ">
+                    <label for="gender">Gender</label>
+                    <select class="custom-select form-control" id="gender" name="gender" #gEmp="ngModel" [(ngModel)]="gender" required>
+                      <option selected disabled>Choose...</option>
+                      <option value="Male">Male</option>
+                      <option value="Female">Female</option>
+                      <option value="Other">Other</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-3 col-sm-12">
+                <label for="primaryContact">Primary Contact</label>
+                <input type="text" class="form-control" [textMask]="{mask: phonemask}" id="primaryContact phoneNumber"
+                  placeholder="(___) ___-____" name="primaryContactPhone" [(ngModel)]="primaryContactPhone">
+              </div>
+              <div class="form-group col-md-3 col-sm-12">
+                <label for="pContactRelation">Primary Contact Relation</label>
+                <input type="text" class="form-control" id="pContactRelation relation" name="primaryContactRelation" [(ngModel)]="primaryContactRelation">
+              </div>
+              <div class="form-group col-md-3 col-sm-12">
+                <label for="pContactNumber">Primary Contact Number</label>
+                <input type="text" class="form-control" [textMask]="{mask: phonemask}" id="pContactNumber phoneNumber"
+                  placeholder="(___) ___-____" name="primaryContactPhone" [(ngModel)]="primaryContactPhone">
+              </div>
+              <div class="form-group col-md-3 col-sm-12">
+                <label for="pContactNumberAlt">Primary Contact Alternate</label>
+                <input type="text" class="form-control" [textMask]="{mask: phonemask}" id="pContactNumberAlt phoneNumber"
+                  placeholder="(___) ___-____" name="primaryContactAltPhone" [(ngModel)]="primaryContactAltPhone">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-4 col-sm-12">
+                <label for="secondaryContact">Secondary Contact</label>
+                <input type="text" class="form-control" [textMask]="{mask: phonemask}" id="secondaryContact phoneNumber"
+                  placeholder="(___) ___-____" name="secondaryContact" [(ngModel)]="secondaryContact">
+              </div>
+              <div class="form-group col-md-4 col-sm-12">
+                <label for="sContactRelation">Secondary Contact Relation</label>
+                <input type="text" class="form-control" id="sContactRelation relation" name="secondaryContactRelation" [(ngModel)]="secondaryContactRelation">
+              </div>
+              <div class="form-group col-md-4 col-sm-12">
+                <label for="sContactNumber">Secondary Contact Number</label>
+                <input type="text" class="form-control" [textMask]="{mask: phonemask}" id="sContactNumber phoneNumber"
+                  placeholder="(___) ___-____" name="secondaryContactPhone" [(ngModel)]="secondaryContactPhone">
+              </div>
+              <div class="form-group col-md-3 col-sm-12">
+                <label for="sContactNumberAlt">Secondary Contact Alternate</label>
+                <input type="text" class="form-control" [textMask]="{mask: phonemask}" id="sContactNumberAlt phoneNumber"
+                  placeholder="(___) ___-____" name="secondaryContactAltPhone" [(ngModel)]="secondaryContactAltPhone">
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-custom shadow-sm nextBtn pull-right" type="button">Next</button>
+        </div>
+      </div>
+      <div class="row mx-3 panel-content" id="step-3">
+        <div class="col-md-12">
+          <h3 class="font-weight-normal">Work Details</h3>
+          <hr class="shadow">
+          <div class="my-3">
+              <div class="form-row">
+              <div class="form-group col-md-4 col-sm-12">
+                  <label for="isActive">Is Employee currently active or did he resign from the company?</label>
+                  <input type="checkbox" id="isActive" name="active" name="active" [(ngModel)]="active">
+                </div>
+              </div>
+            <div class="form-row">
+              <div class="form-group col-md-4 col-sm-12">
+                <label for="hireDate">Hire Date</label>
+                <input type="text" class="form-control" [textMask]="{mask: datemask}" id="hireDate" placeholder="mm/dd/yyyy" name="hireDate" [(ngModel)]="hireDate">
+              </div>
+              <div class="form-group col-md-4 col-sm-12">
+                <label for="hireDate">Termination Date</label>
+                <input type="text" class="form-control" [textMask]="{mask: datemask}" id="terminationDate" placeholder="mm/dd/yyyy" name="terminationDate" [(ngModel)]="terminationDate">
+              </div>
+              <div class="form-group col-md-4 col-sm-12">
+                <label for="hireDate">Employment Last Date</label>
+                <input type="text" class="form-control" [textMask]="{mask: datemask}" id="employmentLastDate" placeholder="mm/dd/yyyy" name="employmentLastDate" [(ngModel)]="employmentLastDate">
+              </div>
+              <div class="form-group col-md-4 col-sm-12">
+                <label for="cStatus">Current Status</label>
+                <select class="custom-select form-control" id="cStatus" name="currentStatus" #gEmp="ngModel" [(ngModel)]="currentStatus" required>
+                  <option selected disabled>Choose...</option>
+                  <option value="Active">Active</option>
+                  <option value="Inactive">Inactive</option>
+                  <option value="Deleted">Deleted</option>
+                  <option value="Suspended">Suspended</option>
+                </select>
+              </div>
+              <div class="form-group col-md-4 col-sm-12">
+                <label for="cName">Client Name</label>
+                <input type="text" class="form-control" id="cName" name="clientName" [(ngModel)]="clientName">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-4 col-sm-12">
+                <label for="jTitle">Job Title</label>
+                <input type="text" class="form-control" id="jTitle" name="jobTitle" [(ngModel)]="jobTitle">
+              </div>
+              <div class="form-group col-md-8 col-sm-12">
+                <label for="organization">Organization</label>
+                <input type="text" class="form-control" id="organization" name="organisation" [(ngModel)]="organisation">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-4 col-sm-12">
+                <label for="department">Department</label>
+                <input type="text" class="form-control" id="department" name="department" [(ngModel)]="department">
+              </div>
+              <div class="form-group col-md-4 col-sm-12">
+                <label for="rManager">Reporting Manager</label>
+                <input type="text" class="form-control" id="rManager" name="reportingManager" [(ngModel)]="reportingManager">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-4 col-sm-12">
+                <label for="empSalary">Employee Salary</label>
+                <input type="text" class="form-control" id="empSalary" name="empSalary" [(ngModel)]="empSalary">
+              </div>
+              <div class="form-group col-md-4 col-sm-12">
+                <label for="emptype">Employment Type</label>
+                <input type="text" class="form-control" id="emptype" name="employmentType" [(ngModel)]="employmentType">
+              </div>
+              <div class="form-group col-md-4 col-sm-12">
+                <label for="employmentStatus">Employment Status</label>
+                <select class="custom-select form-control" id="employmentStatus" name="employmentStatus" #gEmp="ngModel" [(ngModel)]="employmentStatus" required>
+                  <option selected disabled>Choose...</option>
+                  <option value="Active">Active</option>
+                  <option value="Inactive">Inactive</option>
+                  <option value="Deleted">Deleted</option>
+                  <option value="Suspended">Suspended</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-custom pull-right" type="submit" (click)="saveOnboard()">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+.item {
+  width: 270px;
+  margin: 10px;
+  border-radius: 5px;
+  padding: 15px;
+  box-sizing: border-box;
+  position: relative;
+  animation-name: item;
+  animation-duration: 0.4s;
+  display: inline-block;
+  text-align: center;
+  animation-fill-mode: backwards;
+  height: 215px;
+  border-width: 1px;
+  border-color: rgba(17, 18, 18, .06);
+  text-decoration: none;
+  color: #000;
+  img{
+    height: 80px;
+    margin-top: 25px;
+  }
+  .item-add{
+    width: 70px;
+  }
+}
+
+.block-divider {
+  height: 1px;
+  margin-top: 10px;
+  margin-bottom: 14px;
+  background-color: hsla(0, 0%, 100%, .15);
+}
+
+.block{
+    // background-color: #f8f9fa;
+    background-color: #fff;
+}

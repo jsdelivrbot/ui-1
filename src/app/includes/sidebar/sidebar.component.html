@@ -1,0 +1,54 @@
+<nav id="sidebar">
+  <div class="sidebar-header">
+    <h3>HRMS</h3>
+    <img src="assets/static/earth.svg" />
+  </div>
+
+  <ul class="list-unstyled components p-3">
+    <li>
+      <a routerLink="/user/home" routerLinkActive="active">
+        <i class="fa fa-home" aria-hidden="true"></i>
+        <span class="szHide">Home</span>
+      </a>
+    </li>
+    <li>
+      <a routerLink="#" routerLinkActive="active">
+        <i class="fa fa-address-book-o" aria-hidden="true"></i>
+        <span class="szHide">About</span>
+      </a>
+      <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" routerLink="#" routerLinkActive="active">
+        <i class="fa fa-file" aria-hidden="true"></i>
+        <span class="szHide">Pages</span>
+      </a>
+      <ul class="collapse list-unstyled" id="pageSubmenu">
+        <li>
+          <a routerLink="#" routerLinkActive="active">Page 1</a>
+        </li>
+        <li>
+          <a routerLink="#" routerLinkActive="active">Page 2</a>
+        </li>
+        <li>
+          <a routerLink="#" routerLinkActive="active">Page 3</a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a routerLink="#" routerLinkActive="active">
+        <i class="fa fa-file-image-o" aria-hidden="true"></i>
+        <span class="szHide">Portfolio</span>
+      </a>
+    </li>
+    <li>
+      <a routerLink="#" routerLinkActive="active">
+        <i class="fa fa-question-circle" aria-hidden="true"></i>
+        <span class="szHide">FAQ</span>
+      </a>
+    </li>
+    <li>
+      <a routerLink="#" routerLinkActive="active">
+        <i class="fa fa-paper-plane" aria-hidden="true"></i>
+        <span class="szHide">Contact</span>
+      </a>
+    </li>
+  </ul>
+</nav>

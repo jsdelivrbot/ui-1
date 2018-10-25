@@ -1,0 +1,168 @@
+<div class="card">
+  <div class="card-body">
+    <button type="button" class="btn btn-custom btn-blue text-white shadow-sm pull-right" data-toggle="modal"
+      data-target="#modelUpload">
+      <i class="fa fa-upload pr-2" aria-hidden="true"></i> Upload documents
+    </button>
+    <h4 class="m-4 font-weight-normal">Uploaded Files</h4>
+    <div class="row">
+      <div class="card m-1 shadow-sm w-100">
+        <div class="card-body p-3">
+          <div class="row">
+            <div class="col-md-3">
+              <img class="file-type mr-2" src="assets/static/icons/docs-icons/pdf.svg" />
+              <a routerLink="">ImmigrationFile.pdf</a>
+            </div>
+            <div class="col-md-2">
+              <p>Uploaded</p>
+            </div>
+            <div class="col-md-2">
+              <p>03/02/2018</p>
+            </div>
+            <div class="col-md-2">
+              <p>Un-Modified</p>
+            </div>
+            <div class="col-md-2">
+              <p>PDF</p>
+            </div>
+            <div class="col-md-1 text-center">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card m-1 shadow-sm w-100">
+        <div class="card-body p-3">
+          <div class="row">
+            <div class="col-md-3">
+              <img class="file-type mr-2" src="assets/static/icons/docs-icons/doc.svg" />
+              <a routerLink="">ImmigrationFile.doc</a>
+            </div>
+            <div class="col-md-2">
+              <p>Uploaded</p>
+            </div>
+            <div class="col-md-2">
+              <p>03/02/2018</p>
+            </div>
+            <div class="col-md-2">
+              <p>Un-Modified</p>
+            </div>
+            <div class="col-md-2">
+              <p>DOC</p>
+            </div>
+            <div class="col-md-1 text-center">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modelUpload" tabindex="-1" role="dialog" aria-labelledby="modelUpload" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modelUpload">Upload Files</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="inputState">Select Document Type</label>
+          <select id="inputState" class="form-control">
+            <option selected disabled>Choose...</option>
+            <option>1..</option>
+            <option>2..</option>
+            <option>3..</option>
+            <option>4..</option>
+            <option>5..</option>
+          </select>
+        </div>
+
+        <div class="row">
+          <div ng2FileDrop [ngClass]="{'nv-file-over': hasBaseDropZoneOver}" (fileOver)="fileOverBase($event)"
+            [uploader]="uploader" class="well my-drop-zone">
+            <i class="fa fa-upload pr-2" aria-hidden="true"></i> Drag and Drop your files
+          </div>
+          <div class="w-100 mx-4 mb-4">
+                <!-- Queue progress: -->
+                <div class="progress" style="height: 2px">
+                  <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': uploader.progress + '%' }"></div>
+                </div>
+              </div>
+          <div>
+            
+          </div>
+         </div>
+        <div class="row">
+          <div class="m-auto text-center">
+            <!-- <small>Files Uploaded: {{ uploader?.queue?.length }}</small> -->
+            <table class="table">
+              <!-- <thead>
+                <tr>
+                  <th width="50%">Name</th>
+                  <th>Size</th>
+                  <th>Progress</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead> -->
+              <tbody>
+                <tr *ngFor="let item of uploader.queue">
+                  <td>{{ item?.file?.name }}</td>
+                  <td *ngIf="uploader.options.isHTML5" nowrap>{{ item?.file?.size/1024/1024 | number:'.2' }} MB</td>
+                  <td *ngIf="uploader.options.isHTML5">
+                    <div class="progress" style="margin-bottom: 0;height: 2px;">
+                      <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': item.progress + '%' }"></div>
+                    </div>
+                  </td>
+                  <td class="text-center">
+                    <span *ngIf="item.isSuccess"><i class="glyphicon glyphicon-ok"></i></span>
+                    <span *ngIf="item.isCancel"><i class="glyphicon glyphicon-ban-circle"></i></span>
+                    <span *ngIf="item.isError"><i class="glyphicon glyphicon-remove"></i></span>
+                  </td>
+                  <td nowrap>
+                    <!-- <button type="button" class="btn btn-success btn-xs" (click)="item.upload()" [disabled]="item.isReady || item.isUploading || item.isSuccess">
+                      <span class="glyphicon glyphicon-upload"></span> Upload
+                    </button>
+                    <button type="button" class="btn btn-warning btn-xs" (click)="item.cancel()" [disabled]="!item.isUploading">
+                      <span class="glyphicon glyphicon-ban-circle"></span> Cancel
+                    </button> -->
+                    <button type="button" class="btn" (click)="item.remove()"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <!-- <div>
+              
+              <button type="button" class="btn btn-success btn-s" (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">
+                <span class="glyphicon glyphicon-upload"></span> Upload all
+              </button>
+              <button type="button" class="btn btn-warning btn-s" (click)="uploader.cancelAll()" [disabled]="!uploader.isUploading">
+                <span class="glyphicon glyphicon-ban-circle"></span> Cancel all
+              </button>
+              <button type="button" class="btn btn-danger btn-s" (click)="uploader.clearQueue()" [disabled]="!uploader.queue.length">
+                <span class="glyphicon glyphicon-trash"></span> Remove all
+              </button>
+            </div> -->
+
+          </div>
+
+        </div>
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-custom btn-blue text-black shadow-sm" (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">
+            Upload
+            </button>
+            <!-- <button type="button" class="btn btn-warning btn-s" (click)="uploader.cancelAll()" [disabled]="!uploader.isUploading">
+              <span class="glyphicon glyphicon-ban-circle"></span> Cancel all
+            </button>
+            <button type="button" class="btn btn-danger btn-s" (click)="uploader.clearQueue()" [disabled]="!uploader.queue.length">
+              <span class="glyphicon glyphicon-trash"></span> Remove all
+            </button> -->
+      </div>
+    </div>
+  </div>
+</div>
