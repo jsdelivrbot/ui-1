@@ -5,6 +5,7 @@ import { DataServiceService } from '../../services/data-service.service';
 import { RestApiService } from '../../services/rest-api.service';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-onboard',
@@ -48,6 +49,7 @@ export class OnboardComponent implements OnInit {
   employmentStatus = '';
   reportingManager = '';
   active = '';
+  pathFile='';
 
 
   empForm: NgForm;
@@ -63,7 +65,7 @@ export class OnboardComponent implements OnInit {
   public ssnmask: Array<string | RegExp>;
   public datemask: Array<string | RegExp>;
 
-  constructor(private rest: RestApiService, private router: Router, private dataService: DataServiceService) {
+  constructor(private rest: RestApiService, private router: Router, private dataService: DataServiceService, private datep: DatePipe) {
     this.phonemask = ['(', /[0-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
     this.ssnmask = [/[0-9]/, /\d/, /\d/, '-', /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
     this.datemask = [/[0-9]/, /\d/, '/', /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/];
@@ -109,14 +111,18 @@ export class OnboardComponent implements OnInit {
     var image: any = new Image();
     var file: File = $event.target.files[0];
     var myReader: FileReader = new FileReader();
+   // var myWritet: FileWriter = new FileWriter();
     var that = this;
     myReader.onloadend = function (loadEvent: any) {
       image.src = loadEvent.target.result;
       that.cropper.setImage(image);
-
+      that.pathFile=image.src;
     };
 
+
     myReader.readAsDataURL(file);
+    
+    
   }
 
   async saveOnboard() {
@@ -129,9 +135,9 @@ export class OnboardComponent implements OnInit {
       emailId: this.emailId,
       mobileNumber: this.mobileNumber,
       ssn: this.ssn,
-      dateOfBirth: this.dateOfBirth,
+      dateOfBirth: this.datep.transform(this.dateOfBirth,"yyyy-MM-dd"),
       gender: this.gender,
-      profileImage: this.profileImage,
+     pathFile: this.pathFile,
       primaryEmail : this.primaryEmail,
       secondaryEmail : this.secondaryEmail,
       homePhoneNumber : this.homePhoneNumber,
@@ -144,9 +150,9 @@ export class OnboardComponent implements OnInit {
       secondaryContactRelation : this.secondaryContactRelation,
       secondaryContactPhone : this.secondaryContactPhone,
       secondaryContactAltPhone : this.secondaryContactAltPhone,
-      hireDate : this.hireDate,
-      terminationDate : this.terminationDate,
-      employmentLastDate : this.employmentLastDate,
+      hireDate : this.datep.transform(this.hireDate,"yyyy-MM-dd"),
+      terminationDate : this.datep.transform(this.terminationDate,"yyyy-MM-dd"),
+      employmentLastDate : this.datep.transform(this.employmentLastDate,"yyyy-MM-dd"),
       clientName : this.clientName,
       currentStatus : this.currentStatus,
       jobTitle : this.jobTitle,
@@ -162,12 +168,30 @@ export class OnboardComponent implements OnInit {
     );
     if (onboardData['success']) {
       this.dataService.success(this.dataService['message']);
+      //var myReader: FileReader = new FileReader();
+     // Blob y=new Blob(onboardData['pathfile']);
+      
+     // this.data1.image=onboardData['pathfile'];
       console.log(onboardData);
     } else {
       this.dataService.error(this.dataService['message']);
       console.log(onboardData);
     }
   }
+  dataURItoBlob(dataURI) {
+    var binary = atob(dataURI['pathfile']);
+    var array = [];
+  for (var i = 0; i < binary.length; i++) {
+     array.push(binary.charCodeAt(i));
+  }
+ return new Blob([new Uint8Array(array)], {
+    type: 'image/jpg'
+});
+}
+
+   // enter code here
+
+ 
 
   ngOnInit() {
     $(document).ready(function () {
