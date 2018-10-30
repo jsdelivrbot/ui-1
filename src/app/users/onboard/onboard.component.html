@@ -164,7 +164,7 @@
               <div class="form-group col-md-3 col-sm-12">
                 <label for="primaryContact">Primary Contact</label>
                 <input type="text" class="form-control" [textMask]="{mask: phonemask}" id="primaryContact phoneNumber"
-                  placeholder="(___) ___-____" name="primaryContactPhone" [(ngModel)]="primaryContactPhone">
+                  placeholder="(___) ___-____" name="primaryContact" [(ngModel)]="primaryContact">
               </div>
               <div class="form-group col-md-3 col-sm-12">
                 <label for="pContactRelation">Primary Contact Relation</label>
@@ -223,11 +223,11 @@
                 <input type="text" class="form-control" [textMask]="{mask: datemask}" id="hireDate" placeholder="mm/dd/yyyy" name="hireDate" [(ngModel)]="hireDate">
               </div>
               <div class="form-group col-md-4 col-sm-12">
-                <label for="hireDate">Termination Date</label>
+                <label for="terminationDate">Termination Date</label>
                 <input type="text" class="form-control" [textMask]="{mask: datemask}" id="terminationDate" placeholder="mm/dd/yyyy" name="terminationDate" [(ngModel)]="terminationDate">
               </div>
               <div class="form-group col-md-4 col-sm-12">
-                <label for="hireDate">Employment Last Date</label>
+                <label for="employmentLastDate">Employment Last Date</label>
                 <input type="text" class="form-control" [textMask]="{mask: datemask}" id="employmentLastDate" placeholder="mm/dd/yyyy" name="employmentLastDate" [(ngModel)]="employmentLastDate">
               </div>
               <div class="form-group col-md-4 col-sm-12">

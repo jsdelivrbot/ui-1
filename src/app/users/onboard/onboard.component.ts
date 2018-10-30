@@ -65,7 +65,7 @@ export class OnboardComponent implements OnInit {
   public ssnmask: Array<string | RegExp>;
   public datemask: Array<string | RegExp>;
 
-  constructor(private rest: RestApiService, private router: Router, private dataService: DataServiceService, private datep: DatePipe) {
+  constructor(private rest: RestApiService, private router: Router, private dataService: DataServiceService, private datePipe: DatePipe) {
     this.phonemask = ['(', /[0-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
     this.ssnmask = [/[0-9]/, /\d/, /\d/, '-', /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
     this.datemask = [/[0-9]/, /\d/, '/', /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/];
@@ -135,7 +135,7 @@ export class OnboardComponent implements OnInit {
       emailId: this.emailId,
       mobileNumber: this.mobileNumber,
       ssn: this.ssn,
-      dateOfBirth: this.datep.transform(this.dateOfBirth,"yyyy-MM-dd"),
+      dateOfBirth: this.datePipe.transform(this.dateOfBirth,"yyyy-MM-dd"),
       gender: this.gender,
      pathFile: this.pathFile,
       primaryEmail : this.primaryEmail,
@@ -150,9 +150,9 @@ export class OnboardComponent implements OnInit {
       secondaryContactRelation : this.secondaryContactRelation,
       secondaryContactPhone : this.secondaryContactPhone,
       secondaryContactAltPhone : this.secondaryContactAltPhone,
-      hireDate : this.datep.transform(this.hireDate,"yyyy-MM-dd"),
-      terminationDate : this.datep.transform(this.terminationDate,"yyyy-MM-dd"),
-      employmentLastDate : this.datep.transform(this.employmentLastDate,"yyyy-MM-dd"),
+      hireDate : this.datePipe.transform(this.hireDate,"yyyy-MM-dd"),
+      terminationDate : this.datePipe.transform(this.terminationDate,"yyyy-MM-dd"),
+      employmentLastDate : this.datePipe.transform(this.employmentLastDate,"yyyy-MM-dd"),
       clientName : this.clientName,
       currentStatus : this.currentStatus,
       jobTitle : this.jobTitle,
