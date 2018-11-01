@@ -68,7 +68,7 @@ export class OnboardComponent implements OnInit {
   public ssnmask: Array<string | RegExp>;
   public datemask: Array<string | RegExp>;
 
-  constructor(private rest: RestApiService, private router: Router, private dataService: DataServiceService, private datep: DatePipe, private http: HttpClient) {
+  constructor(private rest: RestApiService, private router: Router, private dataService: DataServiceService, private datePipe: DatePipe, private http: HttpClient) {
     this.phonemask = ['(', /[0-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
     this.ssnmask = [/[0-9]/, /\d/, /\d/, '-', /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
     this.datemask = [/[0-9]/, /\d/, '/', /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/];
@@ -130,6 +130,7 @@ export class OnboardComponent implements OnInit {
 
   async saveOnboard() {
 
+
      const input1 = new FormData();
      input1.append('firstName',JSON.stringify(this.firstName));
     input1.append('middleName',this.middleName);
@@ -169,6 +170,9 @@ export class OnboardComponent implements OnInit {
 
     
     input1.append('profileImage',this.pathFile);
+
+    
+
     
 console.log(input1);
 const req = new HttpRequest('POST', 'http://localhost:8080/employee/create', input1, {
