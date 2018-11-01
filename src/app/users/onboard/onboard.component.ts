@@ -6,7 +6,7 @@ import { RestApiService } from '../../services/rest-api.service';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { DatePipe } from '@angular/common';
-import { HttpRequest, HttpClient } from '@angular/common/http';
+import { HttpRequest, HttpClient, HttpResponse } from '@angular/common/http';
 
 
 @Component({
@@ -53,7 +53,7 @@ export class OnboardComponent implements OnInit {
   active = '';
   pathFile: File;
   input=new FormData();
-
+  onboardData=new HttpResponse;
 
   empForm: NgForm;
 
@@ -131,45 +131,43 @@ export class OnboardComponent implements OnInit {
   async saveOnboard() {
 
      const input1 = new FormData();
-     var dto={
-      firstName: this.firstName,
-      middleName: this.middleName,
-      lastName: this.lastName,
-      legalName: this.legalName,
-      emailId: this.emailId,
-      mobileNumber: this.mobileNumber,
-      ssn: this.ssn,
-      dateOfBirth: this.datep.transform(this.dateOfBirth,"yyyy-MM-dd"),
-      gender: this.gender,
-     
-      primaryEmail : this.primaryEmail,
-      secondaryEmail : this.secondaryEmail,
-      homePhoneNumber : this.homePhoneNumber,
-      workPhoneNumber : this.workPhoneNumber,
-      primaryContact : this.primaryContact,
-      primaryContactRelation : this.primaryContactRelation,
-      primaryContactPhone : this.primaryContactPhone,
-      primaryContactAltPhone : this.primaryContactAltPhone,
-      secondaryContact : this.secondaryContact,
-      secondaryContactRelation : this.secondaryContactRelation,
-      secondaryContactPhone : this.secondaryContactPhone,
-      secondaryContactAltPhone : this.secondaryContactAltPhone,
-      hireDate : this.datep.transform(this.hireDate,"yyyy-MM-dd"),
-      terminationDate : this.datep.transform(this.terminationDate,"yyyy-MM-dd"),
-      employmentLastDate : this.datep.transform(this.employmentLastDate,"yyyy-MM-dd"),
-      client : this.clientName,
-      currentStatus : this.currentStatus,
-      jobTitle : this.jobTitle,
-      organisation : this.organisation,
-      department : this.department,
-      empSalary : this.empSalary,
-      employmentType : this.employmentType,
-      employmentStatus : this.employmentStatus,
-      reportingManager : this.reportingManager,
-      active : this.active
-    };
+     input1.append('firstName',JSON.stringify(this.firstName));
+    input1.append('middleName',this.middleName);
+    input1.append('lastName',this.lastName);
+    input1.append('legalName',this.legalName);
+    input1.append('emailId',this.emailId);
+    input1.append('mobileNumber',this.mobileNumber);
+    input1.append('ssn',this.ssn);
+    input1.append('dateOfBirth',this.dateOfBirth);
+    input1.append('gender',this.gender);
+    input1.append('profileImage',JSON.stringify(this.profileImage));
+    input1.append('primaryEmail',this.primaryEmail);
+    input1.append('secondaryEmail',this.secondaryEmail);
+    input1.append('homePhoneNumber',this.homePhoneNumber);
+    input1.append('workPhoneNumber',this.workPhoneNumber);
+    input1.append('primaryContact',this.primaryContact);
+    input1.append('primaryContactRelation',this.primaryContactRelation);
+    input1.append('primaryContactPhone',this.primaryContactPhone);
+    input1.append('primaryContactAltPhone',this.primaryContactAltPhone);
+    input1.append('secondaryContact',this.secondaryContact);
+    input1.append('secondaryContactRelation',this.secondaryContactRelation);
+    input1.append('secondaryContactPhone',this.secondaryContactPhone);
+    input1.append('secondaryContactAltPhone',this.secondaryContactAltPhone);
+    input1.append('hireDate',this.hireDate);
+    input1.append('terminationDate',this.terminationDate);
+    input1.append('employmentLastDate',this.employmentLastDate);
+    input1.append('clientName',this.clientName);
+    input1.append('currentStatus',this.currentStatus);
+    input1.append('jobTitle',this.jobTitle);
+    input1.append('organisation',this.organisation);
+    input1.append('department',this.department);
+    input1.append('empSalary',this.empSalary);
+    input1.append('employmentType',this.employmentType);
+    input1.append('employmentStatus',this.employmentStatus);
+    input1.append('reportingManager',this.reportingManager);
+    input1.append('active',this.active);
 
-    input1.append('dto',JSON.stringify(dto));
+    
     input1.append('profileImage',this.pathFile);
     
 console.log(input1);
@@ -179,21 +177,32 @@ const req = new HttpRequest('POST', 'http://localhost:8080/employee/create', inp
 }
 );
 
-    const onboardData = await this.http.request(req).subscribe(res=>{console.log(onboardData)});
-    if (onboardData['success']) {
-      this.dataService.success(this.dataService['message']);
-      //var myReader: FileReader = new FileReader();
-     // Blob y=new Blob(onboardData['pathfile']);
+    
+    await this.rest.postForm('http://localhost:8080/employee/create',input1).subscribe(res=>{this.onboardData=res, console.log(this.onboardData.body)},error=>{console.log(error)});
+  if(this.onboardData.body!=null){
+console.log('ji');
+    console.log(this.onboardData.body);
+  }
+     
+   // console.log("hi"+JSON.stringify(onboardData));
+    // if(this.onboardData['data']){
+    //   console.log("inside");
+    // }
+    // if (this.onboardData['success']) {
+    //   this.dataService.success(this.dataService['message']);
+    //   //var myReader: FileReader = new FileReader();
+    //  // Blob y=new Blob(onboardData['pathfile']);
       
-     // this.data1.image=onboardData['pathfile'];
-     console.log("hi");
-      console.log(onboardData);
-    } else {
-      this.dataService.error(this.dataService['message']);
-      console.log(onboardData);
-    }
+    //  // this.data1.image=onboardData['pathfile'];
+    //  console.log("hi");
+    //   console.log(this.onboardData);
+    // } else {
+    //   this.dataService.error(this.dataService['message']);
+    //   console.log(this.onboardData);
+    // }
   }
  
+
 
    // enter code here
 

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpRequest, HttpResponse } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 
 @Injectable()
@@ -18,6 +19,15 @@ export class RestApiService {
 
   post(link: string, body: any){
     return this.http.post(link, JSON.stringify(body), { headers: this.headers }).toPromise();
+  }
+
+  postForm(link: string, input1: any): Observable<any>{
+    const req = new HttpRequest('POST',link, input1, {
+  reportProgress: true,
+  responseType: 'text'
+}
+);
+       return this.http.request(req);
   }
 
 }
