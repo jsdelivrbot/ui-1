@@ -162,8 +162,7 @@
             <div class="form-row">
               <div class="form-group col-md-3 col-sm-12">
                 <label for="primaryContact">Primary Contact</label>
-                <input type="text" class="form-control" [textMask]="{mask: phonemask}" id="primaryContact phoneNumber"
-                  placeholder="(___) ___-____" name="primaryContact" [(ngModel)]="primaryContact">
+                <input type="text" class="form-control" id="primaryContact" name="primaryContact" [(ngModel)]="primaryContact">
               </div>
               <div class="form-group col-md-3 col-sm-12">
                 <label for="pContactRelation">Primary Contact Relation</label>
@@ -183,8 +182,7 @@
             <div class="form-row">
               <div class="form-group col-md-4 col-sm-12">
                 <label for="secondaryContact">Secondary Contact</label>
-                <input type="text" class="form-control" [textMask]="{mask: phonemask}" id="secondaryContact phoneNumber"
-                  placeholder="(___) ___-____" name="secondaryContact" [(ngModel)]="secondaryContact">
+                <input type="text" class="form-control" id="secondaryContact" name="secondaryContact" [(ngModel)]="secondaryContact">
               </div>
               <div class="form-group col-md-4 col-sm-12">
                 <label for="sContactRelation">Secondary Contact Relation</label>
