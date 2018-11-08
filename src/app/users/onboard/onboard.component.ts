@@ -121,69 +121,58 @@ export class OnboardComponent implements OnInit {
       that.cropper.setImage(image);
       that.pathFile=file;
     };
-
-
     myReader.readAsDataURL(file);
-    
-    
   }
 
   async saveOnboard() {
 
+    const formData = new FormData();
+    formData.append('firstName', JSON.stringify(this.firstName));
+    formData.append('middleName', this.middleName);
+    formData.append('lastName', this.lastName);
+    formData.append('legalName', this.legalName);
+    formData.append('emailId', this.emailId);
+    formData.append('mobileNumber', this.mobileNumber);
+    formData.append('ssn', this.ssn);
+    formData.append('dateOfBirth', this.dateOfBirth);
+    formData.append('gender', this.gender);
+    formData.append('profileImage', JSON.stringify(this.profileImage));
+    formData.append('primaryEmail', this.primaryEmail);
+    formData.append('secondaryEmail', this.secondaryEmail);
+    formData.append('homePhoneNumber', this.homePhoneNumber);
+    formData.append('workPhoneNumber', this.workPhoneNumber);
+    formData.append('primaryContact', this.primaryContact);
+    formData.append('primaryContactRelation', this.primaryContactRelation);
+    formData.append('primaryContactPhone', this.primaryContactPhone);
+    formData.append('primaryContactAltPhone', this.primaryContactAltPhone);
+    formData.append('secondaryContact', this.secondaryContact);
+    formData.append('secondaryContactRelation', this.secondaryContactRelation);
+    formData.append('secondaryContactPhone', this.secondaryContactPhone);
+    formData.append('secondaryContactAltPhone', this.secondaryContactAltPhone);
+    formData.append('hireDate', this.hireDate);
+    formData.append('terminationDate', this.terminationDate);
+    formData.append('employmentLastDate', this.employmentLastDate);
+    formData.append('clientName', this.clientName);
+    formData.append('currentStatus', this.currentStatus);
+    formData.append('jobTitle', this.jobTitle);
+    formData.append('organisation', this.organisation);
+    formData.append('department', this.department);
+    formData.append('empSalary', this.empSalary);
+    formData.append('employmentType', this.employmentType);
+    formData.append('employmentStatus', this.employmentStatus);
+    formData.append('reportingManager', this.reportingManager);
+    formData.append('active', this.active);
+    formData.append('profileImage', this.pathFile);
 
-     const input1 = new FormData();
-     input1.append('firstName',JSON.stringify(this.firstName));
-    input1.append('middleName',this.middleName);
-    input1.append('lastName',this.lastName);
-    input1.append('legalName',this.legalName);
-    input1.append('emailId',this.emailId);
-    input1.append('mobileNumber',this.mobileNumber);
-    input1.append('ssn',this.ssn);
-    input1.append('dateOfBirth',this.dateOfBirth);
-    input1.append('gender',this.gender);
-    input1.append('profileImage',JSON.stringify(this.profileImage));
-    input1.append('primaryEmail',this.primaryEmail);
-    input1.append('secondaryEmail',this.secondaryEmail);
-    input1.append('homePhoneNumber',this.homePhoneNumber);
-    input1.append('workPhoneNumber',this.workPhoneNumber);
-    input1.append('primaryContact',this.primaryContact);
-    input1.append('primaryContactRelation',this.primaryContactRelation);
-    input1.append('primaryContactPhone',this.primaryContactPhone);
-    input1.append('primaryContactAltPhone',this.primaryContactAltPhone);
-    input1.append('secondaryContact',this.secondaryContact);
-    input1.append('secondaryContactRelation',this.secondaryContactRelation);
-    input1.append('secondaryContactPhone',this.secondaryContactPhone);
-    input1.append('secondaryContactAltPhone',this.secondaryContactAltPhone);
-    input1.append('hireDate',this.hireDate);
-    input1.append('terminationDate',this.terminationDate);
-    input1.append('employmentLastDate',this.employmentLastDate);
-    input1.append('clientName',this.clientName);
-    input1.append('currentStatus',this.currentStatus);
-    input1.append('jobTitle',this.jobTitle);
-    input1.append('organisation',this.organisation);
-    input1.append('department',this.department);
-    input1.append('empSalary',this.empSalary);
-    input1.append('employmentType',this.employmentType);
-    input1.append('employmentStatus',this.employmentStatus);
-    input1.append('reportingManager',this.reportingManager);
-    input1.append('active',this.active);
+//    console.log(formData);
+    const req = new HttpRequest('POST', 'http://localhost:8080/employee/create', formData, {
+      reportProgress: true,
+      responseType: 'text'
+    }
+    );
 
-    
-    input1.append('profileImage',this.pathFile);
-
-    
-
-    
-console.log(input1);
-const req = new HttpRequest('POST', 'http://localhost:8080/employee/create', input1, {
-  reportProgress: true,
-  responseType: 'text'
-}
-);
-
-    
-    await this.rest.postForm('http://localhost:8080/employee/create',input1).subscribe(res=>{this.onboardData=res, console.log(this.onboardData.body)},error=>{console.log(error)});
-  if(this.onboardData.body!=null){
+    await this.rest.postForm('http://localhost:8080/employee/create',formData).subscribe(res=>{this.onboardData=res, console.log(this.onboardData.body)},error=>{console.log(error)});
+    if(this.onboardData.body!=null){
 console.log('ji');
     console.log(this.onboardData.body);
   }
@@ -205,11 +194,6 @@ console.log('ji');
     //   console.log(this.onboardData);
     // }
   }
- 
-
-
-   // enter code here
-
  
 
   ngOnInit() {
