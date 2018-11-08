@@ -12,16 +12,21 @@ import { ImmigrationDetailsComponent } from './profile/children/immigration-deta
 import { JobDetailsComponent } from './profile/children/job-details/job-details.component';
 import { ProfilePersonalComponent } from './profile/children/profile-personal/profile-personal.component';
 import { SocialDetailsComponent } from './profile/children/social-details/social-details.component';
+import { Profile } from 'selenium-webdriver/firefox';
+import { EditprofileComponent } from './editprofile/editprofile.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
   { path: 'employees', component: EmployeesComponent },
+  { path: 'employees/:data',component: EmployeesComponent },
   // {path: 'profile/view_/:_id', component:ProfileComponent},
   {
     path: 'profile/view', component: ProfileComponent,
+    
     children: [
       { path: '', redirectTo: 'personal', pathMatch: 'full' },
+     //{ path: '/:employeeId', component: ProfileComponent},
       { path: 'employee-benefits', component: BenefitsDetailsComponent },
       { path: 'career', component: CareerDetailsComponent },
       { path: 'compensation', component: CompensationDetailsComponent },
@@ -29,8 +34,10 @@ const routes: Routes = [
       { path: 'job-details', component: JobDetailsComponent },
       { path: 'profile', component: ProfilePersonalComponent },
       { path: 'social', component: SocialDetailsComponent }
+      
     ]
   },
+  { path: 'profile/:id', component: EditprofileComponent },
   { path: 'onboard', component: OnboardComponent }
 ];
 

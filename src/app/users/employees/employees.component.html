@@ -27,6 +27,10 @@
     </div>
   </div>
 
+  <div class="pt-1 text-left" *ngIf="message">
+     <p> {{message}}</p>
+    </div>
+
   <div class="pt-1 text-right">
     <a class="btn btn-custom btn-blue text-white shadow-sm" routerLink="/user/onboard"><i class="fa fa-plus pr-2" aria-hidden="true"></i> Onboard Employee</a>
   </div>
@@ -48,50 +52,60 @@
       <div class="col-md-2">
         Pay Salary
       </div>
-      <div class="col-md-1">
+      <div class="col-md-1 text-center">
         Actions
       </div>
     </div>
 
     <div class="row">
       <div class="mb-5 w-100">
-        <div class="card my-1 shadow-sm w-100" *ngFor="let data of datas">
+        <div class="card my-1 shadow-sm w-100" *ngFor="let data of datas;let idx= index">
           <div class="card-body p-2">
             <div class="row">
               <div class="col-md-3">
-                <img class="emp-img mr-2 rounded-circle" src="{{data.picture}}" />
-                <a routerLink="/user/profile/view_/{{data._id}}">{{data.name}}</a>
+                <!-- <img class="emp-img mr-2 rounded-circle" src="{{data.picture}}" /> -->
+                <a routerLink="/user/profile/{{data.employeeId}}">{{data.firstName}}</a>
               </div>
               <div class="col-md-1">
-                {{data.isActive}}
+                {{data.active}}
               </div>
               <div class="col-md-3">
-                {{data.phone}}<br />
-                {{data.email}}<br />
-                {{data.address}}
+                {{data.mobileNumber}}<br />
+                {{data.emailId}}
 
               </div>
               <div class="col-md-2">
-                {{data.registered}}
+                {{data.hireDate}}
               </div>
               <div class="col-md-2">
-                {{data.gender}}
+                {{data.empSalary}}
               </div>
               <div class="col-md-1 text-center">
-                <div class="dropdown">
+                  <a   routerLink="/user/profile/{{data.employeeId}}">
+                    <span class="fa fa-pencil" aria-hidden="true"></span>
+                  </a>
+                  &nbsp;&nbsp;
+                  <a style= "color:#007bff;cursor: pointer" (click)="delete(data.employeeId)">
+                    <span class="fa fa-trash" aria-hidden="true"></span>
+                  </a>
+                  
+                 <!-- <div class="dropdown">
+                    
                   <label for="dropdown-1" class="btn btn-dropdown"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></label>
+                  
                   <input class="dropdown-open" type="checkbox" id="dropdown-1" aria-hidden="true" hidden />
+                  
                   <label for="dropdown-1" class="dropdown-overlay"></label>
-                  <div class="dropdown-inner border shadow-sm">
+                  
+                  <div class="dropdown-inner">
                     <ul>
-                      <li> <a href="#">Edit</a></li>
-                      <li><a href="#">Delete</a></li>
-                      <li><a href="#">Flag</a></li>
-                      <li><a href="#">Share</a></li>
-                      <li><a href="#">Email</a></li>
+                      <li>{{idx}},{{data.employeeId}},{{data.firstName}}</li>
+                      <li> <a routerLink="/user/profile/{{data.employeeId}}">Edit</a></li>
+                      <li><a style= "cursor: pointer" (click)="delete(data.employeeId)">Delete</a></li>
+                     
                     </ul>
                   </div>
-                </div>
+                </div>  -->
               </div>
             </div>
           </div>

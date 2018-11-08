@@ -22,6 +22,7 @@ import { SocialDetailsComponent } from './profile/children/social-details/social
 import { CompensationDetailsComponent } from './profile/children/compensation-details/compensation-details.component';
 import { BenefitsDetailsComponent } from './profile/children/benefits-details/benefits-details.component';
 import { ImmigrationDetailsComponent } from './profile/children/immigration-details/immigration-details.component';
+import { EditprofileComponent } from './editprofile/editprofile.component';
 
 @NgModule({
   imports: [
@@ -33,7 +34,7 @@ import { ImmigrationDetailsComponent } from './profile/children/immigration-deta
     FileUploadModule,
     ImageCropperModule
   ],
-  declarations: [HomeComponent, EmployeesComponent, ProfileComponent, OnboardComponent, ProfilePersonalComponent, JobDetailsComponent, CareerDetailsComponent, SocialDetailsComponent, CompensationDetailsComponent, BenefitsDetailsComponent, ImmigrationDetailsComponent],
+  declarations: [HomeComponent, EmployeesComponent, ProfileComponent, OnboardComponent, ProfilePersonalComponent, JobDetailsComponent, CareerDetailsComponent, SocialDetailsComponent, CompensationDetailsComponent, BenefitsDetailsComponent, ImmigrationDetailsComponent, EditprofileComponent],
   providers: [DataService, RestApiService, DataServiceService]
 })
 export class UsersModule { }

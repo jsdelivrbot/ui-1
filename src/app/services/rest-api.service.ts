@@ -21,6 +21,10 @@ export class RestApiService {
     return this.http.post(link, JSON.stringify(body), { headers: this.headers }).toPromise();
   }
 
+  delete(link: string){
+    return this.http.delete(link,  { headers: this.headers });
+  }
+
   postForm(link: string, input1: any): Observable<any>{
     const req = new HttpRequest('POST',link, input1, {
   reportProgress: true,
@@ -29,5 +33,16 @@ export class RestApiService {
 );
        return this.http.request(req);
   }
+
+  getData(link: string)
+  {
+    return this.http.get(link, { headers: this.headers });
+  }
+
+  putData(link: string,  body: any)
+  {
+    return this.http.put(link, JSON.stringify(body), { headers: this.headers });
+  }
+  
 
 }

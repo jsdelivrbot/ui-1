@@ -14,9 +14,12 @@ export class ProfileComponent implements OnInit {
   person: any;
   personid: any;
 
-  constructor(private link: LocationStrategy, private activatedRoute: ActivatedRoute, private router: Router, private data: DataService, private rest: RestApiService) { }
+  constructor(private link: LocationStrategy, private activatedRoute: ActivatedRoute, private router: Router, private data: DataService, private rest: RestApiService) { 
+    
+  }
 
   ngOnInit() {
+    this.activatedRoute.params.subscribe(res=>this.personid=res['id']);
     // this.activatedRoute.params.subscribe(res => {
     //   this.rest.get('')
     //   .then(this.data => {
