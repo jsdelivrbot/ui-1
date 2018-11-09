@@ -171,28 +171,12 @@ export class OnboardComponent implements OnInit {
     }
     );
 
-    await this.rest.postForm('http://localhost:8080/employee/create',formData).subscribe(res=>{this.onboardData=res, console.log(this.onboardData.body)},error=>{console.log(error)});
-    if(this.onboardData.body!=null){
-console.log('ji');
-    console.log(this.onboardData.body);
-  }
-     
-   // console.log("hi"+JSON.stringify(onboardData));
-    // if(this.onboardData['data']){
-    //   console.log("inside");
-    // }
-    // if (this.onboardData['success']) {
-    //   this.dataService.success(this.dataService['message']);
-    //   //var myReader: FileReader = new FileReader();
-    //  // Blob y=new Blob(onboardData['pathfile']);
-      
-    //  // this.data1.image=onboardData['pathfile'];
-    //  console.log("hi");
-    //   console.log(this.onboardData);
-    // } else {
-    //   this.dataService.error(this.dataService['message']);
-    //   console.log(this.onboardData);
-    // }
+    await this.rest.postForm('http://localhost:8080/employee/create', formData).subscribe(res => { this.onboardData = res, console.log(this.onboardData.body) }, error => { console.log(error) });
+    if (this.onboardData.body != null) {
+
+//      console.log('hi');
+//      console.log(this.onboardData.body);
+    }
   }
  
 

@@ -13,6 +13,7 @@ import { JobDetailsComponent } from './profile/children/job-details/job-details.
 import { ProfilePersonalComponent } from './profile/children/profile-personal/profile-personal.component';
 import { SocialDetailsComponent } from './profile/children/social-details/social-details.component';
 import { Profile } from 'selenium-webdriver/firefox';
+import { ProjectsComponent } from './profile/children/projects/projects.component';
 import { EditprofileComponent } from './editprofile/editprofile.component';
 
 const routes: Routes = [
@@ -23,7 +24,6 @@ const routes: Routes = [
   // {path: 'profile/view_/:_id', component:ProfileComponent},
   {
     path: 'profile/view', component: ProfileComponent,
-    
     children: [
       { path: '', redirectTo: 'personal', pathMatch: 'full' },
      //{ path: '/:employeeId', component: ProfileComponent},
@@ -33,8 +33,8 @@ const routes: Routes = [
       { path: 'legalDocs', component: ImmigrationDetailsComponent },
       { path: 'job-details', component: JobDetailsComponent },
       { path: 'profile', component: ProfilePersonalComponent },
-      { path: 'social', component: SocialDetailsComponent }
-      
+      { path: 'social', component: SocialDetailsComponent },
+      { path: 'projects', component: ProjectsComponent }
     ]
   },
   { path: 'profile/:id', component: EditprofileComponent },

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import * as $ from 'jquery';
 
 @Component({
@@ -8,7 +9,9 @@ import * as $ from 'jquery';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  isLogged: boolean ;
+
+  constructor(private route: Router) { }
 
   ngOnInit() {
     $(document).ready(function () {
@@ -16,6 +19,19 @@ export class NavbarComponent implements OnInit {
           $('#sidebar').toggleClass('active');
       });
   });
+
+  if(localStorage.getItem('isLoggedin') == 'true'){
+    this.isLogged = true;
   }
+  else{
+    this.isLogged = false;
+  }
+  }
+
+  logout(){
+    localStorage.removeItem('isLoggedin');
+    location.reload();
+    this.route.navigate(['login']);
+  } 
 
 }

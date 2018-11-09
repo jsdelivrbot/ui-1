@@ -1,4 +1,4 @@
-<div class="dashboard">
+<!-- <div class="dashboard">
     <div class="container-fluid">
         <a href="#" class="item block shadow-sm">
             <div class="item-header">
@@ -93,4 +93,41 @@
             </span>
         </a>
     </div>
+</div> -->
+
+
+<div class="dashboard">
+  <div class="container-fluid">
+    <div class="row mb-3">
+      <div class="col-sm-12 col-md-6">
+        <h3>Welcome Blue Space Techologies, INC</h3>
+      </div>
+      <div class="col-sm-12 col-md-6">
+        <button type="button" class="dashEdit-btn pull-right shadow-sm" (click)="editOptions()"><i class="fa fa-pencil"
+            aria-hidden="true"></i> Edit Options</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="mr-auto">
+        <ng-container *ngFor="let option of options">
+          <a routerLink="{{option.link}}" *ngIf="option.isDefault == true" class="item block shadow-sm">
+            <div class="item-header">
+              <h6>{{option.description}}</h6>
+            </div>
+            <div class="d-block m-auto">
+              <img class="img-fluid" src="{{option.image}}" />
+            </div>
+            <div class="options" *ngIf="showOptions">
+              <button type="button"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+            </div>
+          </a>
+        </ng-container>
+        <a href="#" class="item">
+          <span class="display-4 align-middle text-white rounded-circle item-add color"><i class="fa fa-plus"
+              aria-hidden="true"></i>
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
 </div>

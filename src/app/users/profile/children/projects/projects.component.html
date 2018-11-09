@@ -1,0 +1,102 @@
+<div class="card">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-sm-12 col-md-12">
+        <button type="button" class="btn btn-custom btn-blue text-white shadow-sm pull-right" data-toggle="modal"
+          data-target="#editProjectDetails">
+          <i class="fa fa-pencil" aria-hidden="true"></i> &nbsp; Add Details
+        </button>
+      </div>
+    </div>
+    <div class="row my-3">
+      <div class="col-sm-12 col-md-12">
+        <div class="card">
+          <div class="col-sm-3 col-md-3">
+            <img src="assets/static/client icons/Morgan_Stanley_Logo_1.svg.png" style="height: 40px" />
+          </div>
+          <div class="col-sm-9 col-md-9">
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+              industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+              scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap
+              into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the
+              release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing
+              software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade bd-example-modal-lg" id="editProjectDetails" tabindex="-1" role="dialog" aria-labelledby="modelUpload"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modelUpload">Add Project Details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-sm-12 col-md-12">
+            <form>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="fromDate">From Date</label>
+                  <input type="date" class="form-control" id="fromDate" placeholder="MM/DD/YYYY">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="toDate">To Date</label>
+                  <input type="date" class="form-control" id="toDate" placeholder="MM/DDD/YYYY">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="projectName">Project Name</label>
+                  <input type="text" class="form-control" id="projectName" placeholder="">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="projectRole">Project Role</label>
+                  <input type="text" class="form-control" id="projectRole" placeholder="">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="clientName">Client Name</label>
+                <input type="text" class="form-control" id="clientName" placeholder="">
+              </div>
+              <div class="form-group">
+                <label for="inputAddress">Client Location</label>
+                <input type="text" class="form-control" id="inputAddress" placeholder="Apartment, studio, or floor, Full Address">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" id="inputAddress" placeholder="Apartment, studio, or floor, Full Address">
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="vendorName">Vendor Name</label>
+                  <input type="text" class="form-control" id="vendorName" placeholder="">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="vendorLocation">Vendor Location</label>
+                  <input type="text" class="form-control" id="vendorLocation" placeholder="">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col-md-4">
+                  <label for="vendorDocs">Link MSI, Sow</label>
+                  <select id="inputState" class="form-control">
+                    <option selected>Choose...</option>
+                    <option>...</option>
+                  </select>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary">Add Project</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

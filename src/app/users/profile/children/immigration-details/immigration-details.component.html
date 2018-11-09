@@ -6,52 +6,88 @@
     </button>
     <h4 class="m-4 font-weight-normal">Uploaded Files</h4>
     <div class="row">
-      <div class="card m-1 shadow-sm w-100">
-        <div class="card-body p-3">
-          <div class="row">
-            <div class="col-md-3">
-              <img class="file-type mr-2" src="assets/static/icons/docs-icons/pdf.svg" />
-              <a routerLink="">ImmigrationFile.pdf</a>
-            </div>
-            <div class="col-md-2">
-              <p>Uploaded</p>
-            </div>
-            <div class="col-md-2">
-              <p>03/02/2018</p>
-            </div>
-            <div class="col-md-2">
-              <p>Un-Modified</p>
-            </div>
-            <div class="col-md-2">
-              <p>PDF</p>
-            </div>
-            <div class="col-md-1 text-center">
-            </div>
-          </div>
+      <div class="col-3">
+        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+          <a class="nav-link active" id="v-pills-tab1-tab" data-toggle="pill" href="#v-pills-tab1" role="tab"
+            aria-controls="v-pills-tab1" aria-selected="true">Legal Docs</a>
+          <a class="nav-link" id="v-pills-tab2-tab" data-toggle="pill" href="#v-pills-tab2" role="tab" aria-controls="v-pills-tab2"
+            aria-selected="false">Immigration Docs</a>
+          <a class="nav-link" id="v-pills-tab3-tab" data-toggle="pill" href="#v-pills-tab3" role="tab" aria-controls="v-pills-tab3"
+            aria-selected="false">H1B Filing</a>
+          <a class="nav-link" id="v-pills-tab4-tab" data-toggle="pill" href="#v-pills-tab4" role="tab" aria-controls="v-pills-tab4"
+            aria-selected="false">H1B Amendment</a>
         </div>
       </div>
-      <div class="card m-1 shadow-sm w-100">
-        <div class="card-body p-3">
-          <div class="row">
-            <div class="col-md-3">
-              <img class="file-type mr-2" src="assets/static/icons/docs-icons/doc.svg" />
-              <a routerLink="">ImmigrationFile.doc</a>
-            </div>
-            <div class="col-md-2">
-              <p>Uploaded</p>
-            </div>
-            <div class="col-md-2">
-              <p>03/02/2018</p>
-            </div>
-            <div class="col-md-2">
-              <p>Un-Modified</p>
-            </div>
-            <div class="col-md-2">
-              <p>DOC</p>
-            </div>
-            <div class="col-md-1 text-center">
+      <div class="col-9">
+        <div class="tab-content" id="v-pills-tabContent">
+          <div class="tab-pane fade show active" id="v-pills-tab1" role="tabpanel" aria-labelledby="v-pills-tab1-tab">
+            <div class="row">
+              <div class="col-md-12 col-sm-12">
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                  industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
+                  and
+                  scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap
+                  into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with
+                  the
+                  release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing
+                  software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+              </div>
             </div>
           </div>
+          <div class="tab-pane fade" id="v-pills-tab2" role="tabpanel" aria-labelledby="v-pills-tab2-tab">
+            <div class="row">
+              <div class="card m-1 shadow-sm w-100">
+                <div class="card-body p-3">
+                  <div class="row">
+                    <div class="col-md-3">
+                      <img class="file-type mr-2" src="assets/static/icons/docs-icons/pdf.svg" />
+                      <a routerLink="">ImmigrationFile.pdf</a>
+                    </div>
+                    <div class="col-md-2">
+                      <p>Uploaded</p>
+                    </div>
+                    <div class="col-md-2">
+                      <p>03/02/2018</p>
+                    </div>
+                    <div class="col-md-2">
+                      <p>Un-Modified</p>
+                    </div>
+                    <div class="col-md-2">
+                      <p>PDF</p>
+                    </div>
+                    <div class="col-md-1 text-center">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card m-1 shadow-sm w-100">
+                <div class="card-body p-3">
+                  <div class="row">
+                    <div class="col-md-3">
+                      <img class="file-type mr-2" src="assets/static/icons/docs-icons/doc.svg" />
+                      <a routerLink="">ImmigrationFile.doc</a>
+                    </div>
+                    <div class="col-md-2">
+                      <p>Uploaded</p>
+                    </div>
+                    <div class="col-md-2">
+                      <p>03/02/2018</p>
+                    </div>
+                    <div class="col-md-2">
+                      <p>Un-Modified</p>
+                    </div>
+                    <div class="col-md-2">
+                      <p>DOC</p>
+                    </div>
+                    <div class="col-md-1 text-center">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="v-pills-tab3" role="tabpanel" aria-labelledby="v-pills-tab3-tab">No Files Found</div>
+          <div class="tab-pane fade" id="v-pills-tab4" role="tabpanel" aria-labelledby="v-pills-tab4-tab">No Files Found</div>
         </div>
       </div>
     </div>
@@ -86,15 +122,15 @@
             <i class="fa fa-upload pr-2" aria-hidden="true"></i> Drag and Drop your files
           </div>
           <div class="w-100 mx-4 mb-4">
-                <!-- Queue progress: -->
-                <div class="progress" style="height: 2px">
-                  <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': uploader.progress + '%' }"></div>
-                </div>
-              </div>
-          <div>
-            
+            <!-- Queue progress: -->
+            <div class="progress" style="height: 2px">
+              <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': uploader.progress + '%' }"></div>
+            </div>
           </div>
-         </div>
+          <div>
+
+          </div>
+        </div>
         <div class="row">
           <div class="m-auto text-center">
             <!-- <small>Files Uploaded: {{ uploader?.queue?.length }}</small> -->

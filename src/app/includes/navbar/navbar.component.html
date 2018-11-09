@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light p-0">
+<nav class="navbar navbar-expand-lg navbar-light p-0"  *ngIf="isLogged">
   <div class="container-fluid">
 
     <button type="button" id="sidebarCollapse" class="btn rounded-circle shadow-sm bg-light">
@@ -93,7 +93,7 @@
             </div>
             <a class="dropdown-item" href="#">Settings</a>
             <a class="dropdown-item" href="#">Account Changes</a>
-            <a class="dropdown-item" href="#">Logout</a>
+            <a class="dropdown-item" (click)="logout()">Logout</a>
           </div>
         </li>
       </ul>

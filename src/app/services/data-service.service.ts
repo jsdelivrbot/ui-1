@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { NavigationStart, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable()
 export class DataServiceService {
@@ -9,7 +10,7 @@ export class DataServiceService {
 
   user: any;
 
-  constructor(private router:Router) {
+  constructor(private router:Router, private toastr: ToastrService ) {
     this.router.events.subscribe(event => {
       if(event instanceof NavigationStart) {
         this.message = '';
@@ -17,19 +18,19 @@ export class DataServiceService {
     });
    }
 
-   error(message) {
-     this.messageType = 'danger';
+  public error(message) {
      this.message = message;
+     this.toastr.error(message);
    }
 
    success(message){
-     this.messageType = 'success';
      this.message = message;
+     this.toastr.success(message);
    }
 
    warning(message){
-     this.messageType = 'warning';
      this.message = message;
+     this.toastr.warning(message);
    }
 
 }
